@@ -1,6 +1,6 @@
 import React from 'react'
 import "./gameplay.css"
-
+import { useNavigate } from 'react-router-dom'
 let dlist = []
 for (let i = 0; i < 3; i++) {
     dlist.push(<div className='dart'>
@@ -13,7 +13,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 function Gameplay() {
-
+  let navigate =useNavigate();
 
   return (
     <div className='gameplay'>
@@ -56,7 +56,7 @@ function Gameplay() {
         {dlist}
       </div>
       <div className='bb'>
-      <button className='backbutton'>Back</button>
+      <button className='backbutton' onClick={()=> navigate("/summary")}>Back</button>
       <button className='backbutton'>Next</button>
       </div>
     </div>

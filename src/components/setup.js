@@ -1,5 +1,6 @@
 import React from 'react'
 import "./setup.css"
+import { useNavigate } from 'react-router-dom'
 
 let game = {
     players: [],
@@ -9,12 +10,14 @@ let game = {
   }
 
 function Setup() {
+
     const [selected, setSelected] = React.useState("")
     const [dpp, setDpp] = React.useState("")
     const [pl, setPl] = React.useState([])
     const [newPlayer, setNewPlayer] = React.useState("new player")
     const [update, setUpdate] = React.useState("")
-
+    let navigate = useNavigate()
+    
     console.log(game.players)
     const data = [
         {key:'1',value:'bruh1'},
@@ -86,7 +89,7 @@ function Setup() {
                 
                     Add Player
                 </button>
-                <button className='button2'>
+                <button className='button2' onClick={()=> navigate("/summary")}>
                 <img className='pimages' alt="play" src='https://media.discordapp.net/attachments/863918878429937676/1061878959672922153/play.png'></img>
                     Start Game</button>
             </div>

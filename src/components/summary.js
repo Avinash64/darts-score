@@ -1,5 +1,6 @@
 import React from 'react'
 import "./summary.css"
+import { useNavigate } from 'react-router-dom'
 
 let game = {
     players: [{name: "aq" , total: 0, scores: []},
@@ -20,6 +21,7 @@ function Summary() {
     const [round, setRound] = React.useState(0)
 
     const [pl, setPl] = React.useState(game.players)
+    let navigate = useNavigate()
 
     console.log(game.players)
     const data = [
@@ -109,10 +111,10 @@ function Summary() {
 
 
             <div className='bottombuttons'>
-                <button>
+                <button onClick={()=> navigate("/")}>
                     End Game
                 </button>
-                <button>
+                <button onClick={()=> navigate("/gameplay")}>
                     Continue
                 </button>
             </div>
